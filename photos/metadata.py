@@ -1,3 +1,4 @@
+from datetime import datetime
 from pathlib import Path
 from typing import Collection, Dict
 
@@ -21,3 +22,10 @@ def read_exif_tags(path: Path, names: Collection[str] = ()) -> Dict[str, str]:
             return {name: exif.get(NAME2EXIF.get(name)) for name in names}
         # return all tags but with remapped names
         return {EXIF2NAME[exif_id]: value for exif_id, value in exif.items()}
+
+
+def parse_exif_datetime(value: str) -> datetime:
+    """
+    Parse Exif datetime format ("YYYY:MM:DD HH:MM:SS") (no timezone).
+    """
+    return datetime.strptime(value, "%Y:%m:%d %H:%M:%S")

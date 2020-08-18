@@ -1,3 +1,5 @@
+from pathlib import Path
+
 __version__ = None
 
 try:
@@ -35,3 +37,10 @@ IMAGE_SUFFIXES = frozenset(
     )
     for suffix in (canonical_suffix, canonical_suffix.upper())
 )
+
+
+def is_image(path: Path) -> bool:
+    """
+    Simple predicate to test whether `path`'s suffix (extension) looks like an image.
+    """
+    return path.suffix in IMAGE_SUFFIXES

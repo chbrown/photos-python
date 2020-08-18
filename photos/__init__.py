@@ -12,6 +12,7 @@ IMAGE_SUFFIXES = frozenset(
     for canonical_suffix in (
         # typical
         ".jpg",
+        ".heic",
         ".png",
         ".tif",
         ".bmp",

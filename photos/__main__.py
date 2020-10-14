@@ -56,7 +56,7 @@ def check(top: str):
     help="Format for new directories",
 )
 @click.option(
-    "-n", "--dry-run", is_flag=True, help="Don't do anything, just log planned changes",
+    "-n", "--dry-run", is_flag=True, help="Don't do anything, just log planned changes"
 )
 def organize_by_month(paths: List[str], output: str, format: str, dry_run: bool):
     """
